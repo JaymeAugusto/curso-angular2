@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SettingsService {
 
   constructor() { }
 
   getLocale(){
-    return 'pt';
+    return  'pt-BR';
   }
+
 }
