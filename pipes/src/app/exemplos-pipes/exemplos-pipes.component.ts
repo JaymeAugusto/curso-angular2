@@ -28,7 +28,7 @@ export class ExemplosPipesComponent implements OnInit {
     setTimeout(() => resolve('Valor assíncrono'), 2000);
   });
 
-  valorAsync2 = interval(2000)
+  valorAsync2 = interval(4000)
   .pipe(
     map(valor => 'Valor assíncrono 2')
   );
