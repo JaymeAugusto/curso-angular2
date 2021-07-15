@@ -2,17 +2,24 @@
   <div class="container-fluid">
     <a routerLink="" class="navbar-brand">Rotas ng2</a>
     <ul class="navbar-nav">
-      <li routerLinkActive="active" class="nav-item">
+      <li routerLinkActive="ativo" class="nav-item">
         <a class="nav-link" routerLink="/login">Login</a>
       </li>
-      <li routerLinkActive="active" class="nav-item">
+      <li routerLinkActive="ativo" class="nav-item">
         <a class="nav-link" routerLink="/cursos">Cursos</a>
+      </li>
+      <li routerLinkActive="ativo" class="nav-item">
+        <a class="nav-link" [routerLink]="['/curso', idCurso.value]">Curso com Id</a>
       </li>
     </ul>
   </div>
 </nav>
 
 <div class="container">
+  <p>
+    Entre com o id do curso
+  </p>
+  <input #idCurso>
   <router-outlet></router-outlet>
 </div>
 
