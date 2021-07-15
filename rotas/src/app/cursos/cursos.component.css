@@ -1,0 +1,9 @@
+.collection{
+    background-color: rgb(218, 252, 249);
+}
+
+.collection-item{
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
