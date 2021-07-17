@@ -1,0 +1,11 @@
+.collection{
+    background-color: rgb(218, 252, 249);
+}
+
+.collection-item{
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid blue;
+    margin: 5px 0px;
+}

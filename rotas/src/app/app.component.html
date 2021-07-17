@@ -2,16 +2,16 @@
   <div class="container-fluid">
     <a routerLink="" class="navbar-brand">Rotas ng2</a>
     <ul class="navbar-nav">
-      <li routerLinkActive="ativo" class="nav-item">
+      <li routerLinkActive="ativo" style="display: inline;">
         <a class="nav-link" routerLink="/login">Login</a>
       </li>
-      <li routerLinkActive="ativo" class="nav-item">
+      <li routerLinkActive="ativo" class="nav-item" style="display: inline;">
         <a class="nav-link" routerLink="/cursos" [queryParams]="{pagina:1}">Cursos</a>
       </li>
-      <li routerLinkActive="ativo" class="nav-item">
+      <!-- <li routerLinkActive="ativo" class="nav-item">
         <a class="nav-link" [routerLink]="['/curso', idCurso.value]">Curso com Id</a>
-      </li>
-      <li routerLinkActive="ativo" class="nav-item">
+      </li> -->
+      <li routerLinkActive="ativo" class="nav-item" style="display: inline;">
         <a class="nav-link" routerLink="/alunos">Alunos</a>
       </li>
     </ul>
@@ -19,10 +19,10 @@
 </nav>
 
 <div class="container">
-  <p>
+  <!-- <p>
     Entre com o id do curso
-  </p>
-  <input #idCurso>
+  </p> -->
+  <!-- <input #idCurso> -->
   <router-outlet></router-outlet>
 </div>
 

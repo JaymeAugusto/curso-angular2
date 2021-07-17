@@ -1,1 +1,25 @@
-<p>aluno-form works!</p>
+<h5>
+    Criar/Editar aluno.
+</h5>
+<div class="col">
+    <div class="row">
+        <div>
+            <label for="disabled">#</label>
+            <input disabled [(ngModel)]="aluno.id" id="disabled" type="text">
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="nome" class="active">Nome</label>
+            <input id="nome" [(ngModel)]="aluno.nome" class="validate" type="text">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="email" class="active">Email</label>
+            <input id="email" [(ngModel)]="aluno.email" class="validate" type="text">
+        </div>
+    </div>
+
+</div>
