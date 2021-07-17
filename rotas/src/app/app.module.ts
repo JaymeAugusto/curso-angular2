@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { routing } from './app.routing';
-import { CursosModule } from './cursos/cursos.module';
-import { AlunosModule } from './alunos/alunos.module';
+// import { AlunosModule } from './alunos/alunos.module';
+// import { CursosModule } from './cursos/cursos.module';
 // import { CursosComponent } from './cursos/cursos.component';
 // import { CursosService } from './cursos/cursos.service';
 // import { CursoDetalheComponent } from './cursos/curso-detalhe/curso-detalhe.component';
@@ -27,8 +27,8 @@ import { AlunosModule } from './alunos/alunos.module';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    CursosModule,
-    AlunosModule,
+    // CursosModule,
+    // AlunosModule,
     routing
   ],
   // providers: [CursosService],
