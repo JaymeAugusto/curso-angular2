@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col">
             <label for="nome" class="active">Nome</label>
-            <input id="nome" [(ngModel)]="aluno.nome" class="validate" type="text">
+            <input id="nome" [(ngModel)]="aluno.nome" class="validate" type="text" (input)="onInput()">
         </div>
     </div>
     <div class="row">
