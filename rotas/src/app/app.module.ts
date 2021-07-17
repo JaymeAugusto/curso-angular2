@@ -1,3 +1,4 @@
+import { AuthService } from './login/auth.service';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -31,6 +32,7 @@ import { routing } from './app.routing';
     // AlunosModule,
     routing
   ],
+  providers: [AuthService] ,
   // providers: [CursosService],
   bootstrap: [AppComponent]
 })
