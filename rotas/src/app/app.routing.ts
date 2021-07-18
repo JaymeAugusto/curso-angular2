@@ -35,7 +35,7 @@ const APP_ROUTES: Routes = [
     { path: '**', component: PaginaNaoEncontradaComponent}
 ];
 
-export const routing: ModuleWithProviders<RouterModule> = RouterModule.forRoot(APP_ROUTES);
+export const routing: ModuleWithProviders<RouterModule> = RouterModule.forRoot(APP_ROUTES, {useHash: true});
 
 // export class AppRoutingModule {
 //     static  routing: ModuleWithProviders<RouterModule> = RouterModule.forRoot(routes);
