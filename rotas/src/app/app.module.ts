@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { routing } from './app.routing';
 import { AuthGuard } from './guards/auth.guard';
 import { CursosGuard } from './guards/cursos.guard';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 // import { AlunosModule } from './alunos/alunos.module';
 // import { CursosModule } from './cursos/cursos.module';
 // import { CursosComponent } from './cursos/cursos.component';
@@ -23,6 +24,7 @@ import { CursosGuard } from './guards/cursos.guard';
     AppComponent,
     LoginComponent,
     HomeComponent,
+    PaginaNaoEncontradaComponent,
     // CursosComponent,
     // CursoDetalheComponent,
     // CursoNaoEncontradoComponent
