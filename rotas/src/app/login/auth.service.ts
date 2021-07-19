@@ -16,7 +16,8 @@ export class AuthService {
   ) {}
 
   fazerLogin(usuario: Usuario){
-    if (usuario.nome ===  'Jayme Augusto' && usuario.senha === 'guto123') {
+    if (usuario.nome ===  'Jayme Augusto' && usuario.senha === 'guto123'
+      || usuario.nome === "amor" && usuario.senha === "fabiola") {
       this.usuarioAutenticado = true;
 
       this.mostrarMenuEmitter.emit(true);
