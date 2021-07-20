@@ -20,5 +20,6 @@
         Email inválido!
     </div>
     <br>
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <button type="submit" class="btn btn-primary"
+        [disabled]="!f.valid">Enviar</button>
 </form>
