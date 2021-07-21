@@ -1,5 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-template-form',
@@ -17,6 +18,12 @@ export class TemplateFormComponent implements OnInit {
     console.log(form);
 
     // console.log(this.usuario);
+
+    this.http.post(
+      'enderecoServer/formUsuario',JSON.stringify(form.value))
+      .pipe(map(res => res))
+      .subscribe(dados => console.log(dados));
+
     
   }
 
@@ -100,3 +107,7 @@ export class TemplateFormComponent implements OnInit {
   }
 
 }
+function dados(dados: any, arg1: (any: any) => void) {
+  throw new Error('Function not implemented.');
+}
+
