@@ -23,8 +23,6 @@ export class TemplateFormComponent implements OnInit {
       'enderecoServer/formUsuario',JSON.stringify(form.value))
       .pipe(map(res => res))
       .subscribe(dados => console.log(dados));
-
-    
   }
 
   constructor(
