@@ -1,3 +1,9 @@
 .ng-invalid.ng-touched:not(form,div.azul) {
     border: 1px solid red;
 }
+
+.btn-cancel{
+    margin: 0 0 0 10px;
+    background-color: rgb(124, 124, 124);
+    color: white;
+}
