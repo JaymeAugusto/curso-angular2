@@ -14,7 +14,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class DataFormComponent implements OnInit {
 
   formulario!: FormGroup;
-  estados!: EstadoBr[];
+  estados: EstadoBr[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,10 +24,9 @@ export class DataFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.estados=[];
     this.dropdownService.getEstadosBr().subscribe((dados: EstadoBr)=>{     
       this.estados.push(dados);
-      console.log(dados);
+      console.log(this.estados);
     });
     
     // this.formulario = new FormGroup({
