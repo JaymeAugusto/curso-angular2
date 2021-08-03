@@ -1,3 +1,4 @@
+import { ConsultaCepService } from './../shared/services/consulta-cep.service';
 import {HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
@@ -26,7 +27,8 @@ export class TemplateFormComponent implements OnInit {
   }
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private cepService: ConsultaCepService
   ) { }
 
   ngOnInit(): void {
@@ -48,17 +50,10 @@ export class TemplateFormComponent implements OnInit {
     
     cep = cep.replace(/\D/g,'');
 
-    if(cep != ""){
-      var validacep = /^[0-9]{8}$/;
-
-      if(validacep.test(cep)){
-
-        this.resetaDadosForm(form);
-
-        this.http.get(`https://viacep.com.br/ws/${cep}/json`).subscribe(dados => {  
-          this.populaDadosFrom(dados, form);
-        });
-      }
+    if (cep != null && cep!== '') {
+      this.cepService.consultaCEP(cep)?.subscribe(dados => {
+        this.populaDadosFrom(dados, form);
+      });
     }
   }
 
@@ -104,8 +99,5 @@ export class TemplateFormComponent implements OnInit {
     });
   }
 
-}
-function dados(dados: any, arg1: (any: any) => void) {
-  throw new Error('Function not implemented.');
 }
 
