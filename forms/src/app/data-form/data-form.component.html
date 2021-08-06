@@ -97,6 +97,20 @@
                 msgErro="Estado é obrigatório!">
                 </app-campo-control-erro>
             </div>
+
+            <div class="col-3" [ngClass]="aplicaCssErro('endereco.cargo')">
+                <label for="cargo" class="control-label">Cargo</label>
+                <select class="form-control" id="cargo" formControlName="cargo">
+                    <option *ngFor="let cargo of cargos" [ngValue]="cargo"> {{ cargo.desc }}</option>
+                </select>
+            </div>
+
+            <div class="col-3" [ngClass]="aplicaCssErro('endereco.tecnologias')">
+                <label for="tecnologias" class="control-label">tecnologias</label>
+                <select multiple class="form-control" id="tecnologias" formControlName="tecnologias">
+                    <option *ngFor="let tecnologia of tecnologias" [value]="tecnologia.nome"> {{ tecnologia.desc }}</option>
+                </select>
+            </div>
         </div>
     </div>
 

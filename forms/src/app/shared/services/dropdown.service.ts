@@ -16,4 +16,13 @@ export class DropdownService {
     return this.http.get<EstadoBr>('assets/dados/estadosbr.json').pipe();
     // .pipe(map((res: Response) => res.json()));
   }
+
+  getTecnologias(){
+    return [
+      {nome: 'java', desc: 'Java'},
+      {nome: 'javascript', desc: 'Javascript'},
+      {nome: 'php', desc: 'PHP'},
+      {nome: 'ruby', desc: 'Ruby'}
+    ]
+  }
 }

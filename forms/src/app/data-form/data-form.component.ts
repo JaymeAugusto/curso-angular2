@@ -16,6 +16,9 @@ export class DataFormComponent implements OnInit {
   formulario!: FormGroup;
   estados: EstadoBr[] = [];
 
+  cargos!: any[];
+  tecnologias!: any[];
+
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -24,6 +27,9 @@ export class DataFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    this.tecnologias = this.dropdownService.getTecnologias();
+
     this.dropdownService.getEstadosBr().subscribe((dados: EstadoBr)=>{     
       this.estados.push(dados);
       console.log(this.estados);
@@ -46,7 +52,10 @@ export class DataFormComponent implements OnInit {
         bairro: [null, [Validators.required]],
         cidade: [null, [Validators.required]],
         estado: [null, [Validators.required]]
-      })
+      }),
+
+      cargo: [null],
+      tecnologias: [null]
     });
   }
 
@@ -141,4 +150,10 @@ export class DataFormComponent implements OnInit {
       }
     });
   }
+
+  setarTecnologias() {
+    this.formulario.get('tecnologias')?.setValue(['java', 'javascript', 'php']);
+  }
+
+ 
 }
