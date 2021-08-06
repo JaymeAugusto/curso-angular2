@@ -18,6 +18,7 @@ export class DataFormComponent implements OnInit {
 
   cargos!: any[];
   tecnologias!: any[];
+  newsletterOp!: any[];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,6 +30,7 @@ export class DataFormComponent implements OnInit {
   ngOnInit(): void {
 
     this.tecnologias = this.dropdownService.getTecnologias();
+    this.newsletterOp = this.dropdownService.getNewsletter();
 
     this.dropdownService.getEstadosBr().subscribe((dados: EstadoBr)=>{     
       this.estados.push(dados);
@@ -41,21 +43,22 @@ export class DataFormComponent implements OnInit {
     // });
 
     this.formulario = this.formBuilder.group({
-      nome: [null, [Validators.required] /*Validators.minLength(3), Validators.maxLength(40)*/],
+      nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
       email: [null, [Validators.required, Validators.email]],
-
+      
       endereco: this.formBuilder.group({
         cep: [null, [Validators.required]],
-        numero: [null, [Validators.required]],
+        numero: [null, Validators.required],
         complemento: [null],
-        rua: [null, [Validators.required]],
-        bairro: [null, [Validators.required]],
-        cidade: [null, [Validators.required]],
-        estado: [null, [Validators.required]]
+        rua: [null, Validators.required],
+        bairro: [null, Validators.required],
+        cidade: [null, Validators.required],
+        estado: [null, Validators.required]
       }),
 
       cargo: [null],
-      tecnologias: [null]
+      tecnologias: [null],
+      newsletter: ['s']
     });
   }
 
