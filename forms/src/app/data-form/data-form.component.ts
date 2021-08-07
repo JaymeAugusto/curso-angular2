@@ -14,7 +14,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class DataFormComponent implements OnInit {
 
   formulario!: FormGroup;
-  estados: EstadoBr[] = [];
+  estados!: EstadoBr[];
 
   cargos!: any[];
   tecnologias!: any[];
@@ -29,13 +29,12 @@ export class DataFormComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.tecnologias = this.dropdownService.getTecnologias();
-    this.newsletterOp = this.dropdownService.getNewsletter();
+    this.dropdownService.getEstadosBr()
+      .subscribe(dados => this.estados = dados);
 
-    this.dropdownService.getEstadosBr().subscribe((dados: EstadoBr)=>{     
-      this.estados.push(dados);
-      console.log(this.estados);
-    });
+      this.cargos = this.dropdownService.getCargos();
+      this.tecnologias = this.dropdownService.getTecnologias();
+      this.newsletterOp = this.dropdownService.getNewsletter();
     
     // this.formulario = new FormGroup({
     //   nome: new FormControl(null),
@@ -58,7 +57,8 @@ export class DataFormComponent implements OnInit {
 
       cargo: [null],
       tecnologias: [null],
-      newsletter: ['s']
+      newsletter: ['s'],
+      termos: [null, Validators.pattern('true')]
     });
   }
 

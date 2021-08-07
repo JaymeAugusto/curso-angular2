@@ -1,4 +1,6 @@
 <form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()" >
+
+
     <div class="row" [ngClass]="aplicaCssErro('nome')">
         <div class="col-12">
             <label for="nome">Nome</label>
@@ -12,6 +14,7 @@
             </app-campo-control-erro>
         </div>
     </div>
+
 
     <div class="row" [ngClass]="aplicaCssErro('email')">
         <div class="col-12">
@@ -32,6 +35,8 @@
     </div>
 
     <div formGroupName="endereco" class="azul">
+
+
         <div class="row">
             <div class="col-3" [ngClass]="aplicaCssErro('endereco.cep')">
                 <label for="cep" class="control-label">CEP</label>
@@ -57,6 +62,8 @@
                 <input type="text" class="form-control" id="complemento" formControlName="complemento">
             </div>
         </div>
+
+
         <div class="row" [ngClass]="aplicaCssErro('endereco.rua')">
             <div class="col-12">
                 <label for="rua">Rua</label>
@@ -70,6 +77,8 @@
                 </app-campo-control-erro>
             </div>
         </div>
+
+
         <div class="row">
             <div class="col-5" [ngClass]="aplicaCssErro('endereco.bairro')">
                 <label for="bairro" class="control-label">Bairro</label>
@@ -90,38 +99,59 @@
             </div>
             <div class="col-3" [ngClass]="aplicaCssErro('endereco.estado')">
                 <label for="estado" class="control-label">Estado</label>
-                <input type="text" class="form-control" id="estado" formControlName="estado">
+                <select class="form-control" id="estado" formControlName="estado">
+                    <option *ngFor="let estado of estados" [value]="estado.sigla">{{ estado.nome }}</option>
+                </select>
         
                 <app-campo-control-erro
                 [mostrarErro]="verificaValidTouched('endereco.estado')"
                 msgErro="Estado é obrigatório!">
                 </app-campo-control-erro>
             </div>
+        </div>
+    </div>
 
-            <div class="col-3" [ngClass]="aplicaCssErro('cargo')">
-                <label for="cargo" class="control-label">Cargo</label>
-                <select class="form-control" id="cargo" formControlName="cargo">
-                    <option *ngFor="let cargo of cargos" [ngValue]="cargo"> {{ cargo.desc }}</option>
-                </select>
-            </div>
 
-            <div class="col-3" [ngClass]="aplicaCssErro('tecnologias')">
-                <label for="tecnologias" class="control-label">tecnologias</label>
-                <select multiple class="form-control" id="tecnologias" formControlName="tecnologias">
-                    <option *ngFor="let tecnologia of tecnologias" [value]="tecnologia.nome"> {{ tecnologia.desc }}</option>
-                </select>
-            </div>
+    <div class="row">
+        <div class="col-4" [ngClass]="aplicaCssErro('cargo')">
+            <label for="cargo" class="control-label">Cargo</label>
+            <select class="form-control" id="cargo" formControlName="cargo">
+                <option *ngFor="let cargo of cargos" [ngValue]="cargo"> {{ cargo.desc }}</option>
+            </select>
+        </div>
 
-            <div class="col-md-3" [ngClass]="aplicaCssErro('newsletter')">
-                <label for="newsletter" class="control-label">Newsletter</label>
-                <div id="newsletter" class="row">
-                  <div class="col-sm-4" *ngFor="let item of newsletterOp">
-                    <label class="radio-inline">
-                      <input type="radio" [value]="item.valor" formControlName="newsletter" /> {{ item.desc }}
-                    </label>
-                  </div>
-                </div>
+        <div class="col-4" [ngClass]="aplicaCssErro('tecnologias')">
+            <label for="tecnologias" class="control-label">tecnologias</label>
+            <select multiple class="form-control" id="tecnologias" formControlName="tecnologias">
+                <option *ngFor="let tecnologia of tecnologias" [value]="tecnologia.nome"> {{ tecnologia.desc }}</option>
+            </select>
+        </div>
+
+        <div class="col-4" [ngClass]="aplicaCssErro('newsletter')">
+            <label for="newsletter" class="control-label">Newsletter</label>
+            <div id="newsletter" class="row">
+              <div class="col-sm-4" *ngFor="let item of newsletterOp">
+                <label class="radio-inline">
+                  <input type="radio" [value]="item.valor" formControlName="newsletter" /> {{ item.desc }}
+                </label>
               </div>
+            </div>
+          </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-3" [ngClass]="aplicaCssErro('termos')">
+            <div class="checkbox">
+                <label class="checkbox-inline">
+                    <input type="checkbox" formControlName="termos"> Aceito os termos.
+                </label>
+
+                <app-campo-control-erro
+                [mostrarErro]="!formulario.get('termos')?.valid"
+                msgErro="Por favor, aceite os termos para concluir o cadastro!">
+                </app-campo-control-erro>
+            </div>
         </div>
     </div>
 
