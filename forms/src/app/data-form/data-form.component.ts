@@ -1,3 +1,4 @@
+import { FormValidations } from './../shared/form-validations';
 import { ConsultaCepService } from './../shared/services/consulta-cep.service';
 import { EstadoBr } from './../shared/models/estado-br';
 import { DropdownService } from './../shared/services/dropdown.service';
