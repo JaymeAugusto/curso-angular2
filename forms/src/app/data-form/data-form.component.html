@@ -8,10 +8,10 @@
         <div class="col-12">
             <input type="text" class="form-control" formControlName="nome" id="nome" placeholder="Nome">
 
-            <app-campo-control-erro 
+            <app-error-msg
             [mostrarErro]="verificaValidTouched('nome')" 
             msgErro="Nome é obrigatório!">
-            </app-campo-control-erro>
+            </app-error-msg>
         </div>
     </div>
 
